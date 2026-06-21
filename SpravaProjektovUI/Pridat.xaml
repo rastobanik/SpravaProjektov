@@ -1,0 +1,38 @@
+﻿<Window x:Class="SpravaProjektovUI.Pridat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpravaProjektovUI"
+        mc:Ignorable="d"
+        Title="Pridat" Height="300" Width="477" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="6" Margin="0,5,0,0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Ulozit" Command="{Binding UlozitCommand}" Margin="0,0,20,10" Width="80" Height="35"></Button>
+            <Button Content="Zrusit" Command="{Binding ZrusitCommand}" Margin="0,0,20,10" Width="80" Height="35"></Button>
+        </StackPanel>
+        <Label Content="Project ID :" Grid.Row="1" Grid.Column="0"></Label>
+        <Label Content="Name :" Grid.Row="2" Grid.Column="0"></Label>
+        <Label Content="Abbreviation :" Grid.Row="3" Grid.Column="0"></Label>
+        <Label Content="Customer :" Grid.Row="4" Grid.Column="0"></Label>
+        <TextBox Grid.Row="1" Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Height="25" Margin="5"></TextBox>
+        <TextBox Grid.Row="2" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Height="25" Margin="5"></TextBox>
+        <TextBox Grid.Row="3" Text="{Binding Abbreviation, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Height="25" Margin="5"></TextBox>
+        <TextBox Grid.Row="4" Text="{Binding Customer, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Height="25" Margin="5"></TextBox>
+        
+    </Grid>
+</Window>
