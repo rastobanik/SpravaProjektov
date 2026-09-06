@@ -62,7 +62,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x' # 👈 Zmeň podľa verzie .NET, ktorú používa tvoje WPF
+        dotnet-version: '10.0.x' # 👈 Zmeň podľa verzie .NET, ktorú používa tvoje WPF
 
     # 2. Pridanie MSBuild do príkazového riadku (potrebné pre WPF a NuGet)
     - name: Setup MSBuild
