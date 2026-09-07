@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SpravaProjektovUI_Avalonia.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SpravaProjektovUI_Avalonia.Views.MainDashboardView"
+             x:DataType="vm:MainDashboardViewModel">
+
+    <Design.DataContext>
+        <vm:MainDashboardViewModel />
+    </Design.DataContext>
+
+    <Grid ColumnDefinitions="3*, 1*">
+        
+        <!-- Tabuľka s dátami (DataGrid vyžaduje rovnaké atribúty ako vo WPF) -->
+        <DataGrid Grid.Column="0"
+                  ItemsSource="{Binding Projects}"
+                  SelectedItem="{Binding SelectedProject}"
+                  AutoGenerateColumns="True"
+                  Margin="10"
+                  IsReadOnly="True" 
+                  GridLinesVisibility="All"
+                  BorderThickness="1"
+                  BorderBrush="Gray"/>
+        
+        <!-- Bočný panel s tlačidlami -->
+        <StackPanel Grid.Column="1"
+                    Margin="10"
+                    VerticalAlignment="Top"
+                    Spacing="10">
+
+            <!-- Použitie moderných vlastností pre zarovnanie obsahu tlačidiel -->
+            <Button Content="Pridať" 
+                    Command="{Binding PridatCommand}" 
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"/>
+            
+            <Button Content="Editovať" 
+                    Command="{Binding AktualizovatCommand}" 
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"/>
+            
+            <Button Content="Zmazať" 
+                    Command="{Binding ZmazatCommand}" 
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
+

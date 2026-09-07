@@ -13,9 +13,6 @@ namespace SpravaProjektovUI.ViewModels
         [ObservableProperty]
         private string password;
 
-        [ObservableProperty]
-        private string? errorMessage;
-
         private readonly LoginApiClient _api;
 
         public LoginViewModel(LoginApiClient api)
@@ -26,26 +23,19 @@ namespace SpravaProjektovUI.ViewModels
         [RelayCommand]
         private async Task LoginAsync()
         {
-            try
+            var result = await _api.LoginAsync(Username, Password);
+
+            if (result == null)
             {
-                var result = await _api.LoginAsync(Username, Password);
-
-                if (result == null)
-                {
-                    MessageBox.Show("Chybne meno alebo heslo");
-                    return;
-                }
-
-                // success → open MainWindow
-                var main = new MainWindow();
-                main.Show();
-
-                Application.Current.Windows[0]?.Close();
+                MessageBox.Show("Invalid login");
+                return;
             }
-            catch
-            {                
-                MessageBox.Show("Nepodarilo sa prihlasit");
-            }
+
+            // success → open MainWindow
+            var main = new MainWindow();
+            main.Show();
+
+            Application.Current.Windows[0]?.Close();           
         }
 
         [RelayCommand]

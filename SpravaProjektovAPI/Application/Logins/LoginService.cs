@@ -2,19 +2,9 @@
 {
     public class LoginService : ILoginService
     {
-
-        private readonly string _user;
-        private readonly string _password;
-
-        public LoginService(string userName, string password) 
-        { 
-            _user  = userName;
-            _password = password;
-        }
-
         public async Task<string?> LoginAsync(string username, string password)
-        {            
-            if (username == _user && password == _password)
+        {
+            if (username == "admin" && password == "123")
             {
                 return "fake-jwt-token";
             }

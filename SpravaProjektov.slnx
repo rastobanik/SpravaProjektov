@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="../SprávaProjektov/SpravaProjektovUnitTest/SpravaProjektovUnitTest.csproj" />
   <Project Path="SpravaProjektovAPI/SpravaProjektovAPI.csproj" />
+  <Project Path="SpravaProjektovUI-Avalonia/SpravaProjektovUI-Avalonia.csproj" />
   <Project Path="SpravaProjektovUI/SpravaProjektovUI.csproj" />
 </Solution>

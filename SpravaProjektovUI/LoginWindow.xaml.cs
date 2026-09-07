@@ -27,10 +27,5 @@ namespace SpravaProjektovUI
             var vm = new LoginViewModel(App.LoginApiClient);
             DataContext = vm;            
         }
-
-        private void pbHeslo_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            ((LoginViewModel)DataContext).Password = ((PasswordBox)sender).Password;
-        }
     }
 }

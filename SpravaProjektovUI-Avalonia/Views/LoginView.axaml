@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SpravaProjektovUI_Avalonia.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="354" d:DesignHeight="241"
+             x:Class="SpravaProjektovUI_Avalonia.Views.LoginView"
+             x:DataType="vm:LoginViewModel">
+
+    <!-- Blok pre designer -->
+    <Design.DataContext>
+        <vm:LoginViewModel />
+    </Design.DataContext>
+
+    <!-- Použitie Gridu s jasne definovanými riadkami a stĺpcami pre čistý layout -->
+   <Grid Width="360" 
+          Height="220"
+          HorizontalAlignment="Center" 
+          VerticalAlignment="Center"
+          Margin="20" 
+          RowDefinitions="Auto, Auto, *, Auto" 
+          ColumnDefinitions="Auto, *">
+        
+        <!-- Prihlasovacie meno -->
+        <Label Grid.Row="0" Grid.Column="0" 
+               Content="Prihlas. meno:" 
+               VerticalAlignment="Center" 
+               Margin="0,0,10,15"/>
+        
+        <TextBox Grid.Row="0" Grid.Column="1" 
+                 Text="{Binding Username}" 
+                 VerticalAlignment="Center" 
+                 Margin="0,0,0,15"/>
+
+        <!-- Heslo -->
+        <Label Grid.Row="1" Grid.Column="0" 
+               Content="Heslo:" 
+               VerticalAlignment="Center" 
+               Margin="0,0,10,15"/>
+        
+        <!-- PasswordChar skryje zadávaný text (vo WPF to bol samostatný PasswordBox) -->
+        <TextBox Grid.Row="1" Grid.Column="1" 
+                 Text="{Binding Password}" 
+                 PasswordChar="*" 
+                 VerticalAlignment="Center" 
+                 Margin="0,0,0,15"/>
+
+        <!-- Tlačidlá umiestnené v spodnom riadku vedľa seba -->
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    Spacing="15">
+            
+            <Button Content="Prihlásiť" 
+                    Command="{Binding LoginCommand}" 
+                    Width="100" 
+                    HorizontalContentAlignment="Center"/>
+            
+            <Button Content="Zrušiť" 
+                    Command="{Binding CancelCommand}" 
+                    Width="100" 
+                    HorizontalContentAlignment="Center"/>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

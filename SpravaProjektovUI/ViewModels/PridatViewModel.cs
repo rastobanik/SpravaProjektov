@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using SpravaProjektovUI.Infrastructure;
 using SpravaProjektovUI.Models;
-using System.Windows;
 
 namespace SpravaProjektovUI.ViewModels
 {
@@ -41,45 +40,34 @@ namespace SpravaProjektovUI.ViewModels
         [ObservableProperty]
         private string? customer;
 
-        [ObservableProperty]
-        private string? errorMessage;
-
 
         [RelayCommand]
         private async Task Ulozit()
         {
-            try
+            if (_api == null)
+            {
+                return;
+            }
+
+            var project = new ProjectDto
+            {
+                Id = Id,
+                Name = Name,
+                Abbreviation = Abbreviation,
+                Customer = Customer
+            };
+
+            if (pridat)
+            { 
+                await _api.CreateAsync(project);
+            }
+            else
             {
 
-                if (_api == null)
-                {
-                    return;
-                }
-
-                var project = new ProjectDto
-                {
-                    Id = Id,
-                    Name = Name,
-                    Abbreviation = Abbreviation,
-                    Customer = Customer
-                };
-
-                if (pridat)
-                {
-                    await _api.CreateAsync(project);
-                }
-                else
-                {
-
-                    await _api.UpadateAsync(project);
-                }
-
-                RequestClose?.Invoke();
+                await _api.UpadateAsync(project);
             }
-            catch
-            {
-                MessageBox.Show("Nepodarilo sa pridat/aktualizovat projekt");
-            }
+
+            RequestClose?.Invoke();
         }
 
         [RelayCommand]

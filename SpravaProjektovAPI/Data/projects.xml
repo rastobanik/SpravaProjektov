@@ -30,4 +30,9 @@
     <abbreviation>ffffff</abbreviation>
     <customer>fffffffff</customer>
   </project>
+  <project id="string">
+    <name>string</name>
+    <abbreviation>string</abbreviation>
+    <customer>string</customer>
+  </project>
 </projects>

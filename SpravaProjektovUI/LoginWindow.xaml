@@ -9,10 +9,10 @@
     <Grid>
         <Label Content="Prihlas. meno:" HorizontalAlignment="Left" Margin="22,27,0,0" VerticalAlignment="Top"/>
         <Label Content="Heslo:" HorizontalAlignment="Left" Margin="22,87,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="111,31,0,0" TextWrapping="Wrap" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Width="210" Height="26"/>        
+        <TextBox HorizontalAlignment="Left" Margin="111,31,0,0" TextWrapping="Wrap" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Width="210" Height="26"/>
+        <TextBox HorizontalAlignment="Left" Margin="111,87,0,0" TextWrapping="Wrap" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="210" Height="26"/>
         <Button Content="Prihlasit" Command="{Binding LoginCommand}" HorizontalAlignment="Left" Margin="111,163,0,0" VerticalAlignment="Top" Width="80"/>
         <Button Content="Zrusit" Command="{Binding CancelCommand}" HorizontalAlignment="Left" Margin="230,163,0,0" VerticalAlignment="Top" Width="80"/>
-        <PasswordBox x:Name="pbHeslo" HorizontalAlignment="Left" Margin="111,87,0,0" VerticalAlignment="Top" Width="210" Height="26" PasswordChanged="pbHeslo_PasswordChanged"/>
 
     </Grid>
 </Window>

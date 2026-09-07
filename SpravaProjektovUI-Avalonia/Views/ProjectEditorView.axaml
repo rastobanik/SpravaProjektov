@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SpravaProjektovUI_Avalonia.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="477" d:DesignHeight="300"
+             x:Class="SpravaProjektovUI_Avalonia.Views.ProjectEditorView"
+             x:DataType="vm:ProjectEditorViewModel">
+
+    <Design.DataContext>
+        <vm:ProjectEditorViewModel />
+    </Design.DataContext>
+
+    <!-- Vycentrovaný box s pevne ohraničenou veľkosťou, aby plával v strede hlavného okna -->
+    <Grid Width="450" 
+          Height="280"
+          HorizontalAlignment="Center" 
+          VerticalAlignment="Center"
+          Margin="10"
+          RowDefinitions="Auto, Auto, Auto, Auto, *, Auto"
+          ColumnDefinitions="120, *">
+        
+        <!-- Vlastnosť RowSharingExplicitly a Spacing na Gridovom layoute nefunguje priamo, 
+             preto použijeme pre prehľadnosť jemný VerticalAlignment na textoch -->
+        
+        <!-- Project ID -->
+        <Label Grid.Row="0" Grid.Column="0" Content="Project ID:" VerticalAlignment="Center" Margin="0,5"/>
+        <!-- Ak je ID generované databázou pri pridávaní, môžete neskôr pridať IsReadOnly="{Binding !IsNewProject}" -->
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Id}" Height="30" Margin="0,5"/>
+
+        <!-- Name -->
+        <Label Grid.Row="1" Grid.Column="0" Content="Name:" VerticalAlignment="Center" Margin="0,5"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Name}" Height="30" Margin="0,5"/>
+
+        <!-- Abbreviation -->
+        <Label Grid.Row="2" Grid.Column="0" Content="Abbreviation:" VerticalAlignment="Center" Margin="0,5"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Abbreviation}" Height="30" Margin="0,5"/>
+
+        <!-- Customer -->
+        <Label Grid.Row="3" Grid.Column="0" Content="Customer:" VerticalAlignment="Center" Margin="0,5"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Customer}" Height="30" Margin="0,5"/>
+
+        <!-- Tlačidlá (Uložiť a Zrušiť) v spodnom riadku -->
+        <StackPanel Grid.Row="5" Grid.Column="1" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    Spacing="15" 
+                    Margin="0,15,0,0">
+            
+            <Button Content="Uložiť" 
+                    Command="{Binding UlozitCommand}" 
+                    Width="90" Height="35"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+            
+            <Button Content="Zrušiť" 
+                    Command="{Binding ZrusitCommand}" 
+                    Width="90" Height="35"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

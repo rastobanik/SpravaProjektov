@@ -1,8 +1,13 @@
-﻿namespace SpravaProjektovAPI.Application.Logins
+﻿using System.Text.Json.Serialization;
+
+namespace SpravaProjektovAPI.Application.Logins
 {
     public class LoginRequest
     {
+        [JsonPropertyName("username")]
         public string Username { get; set; } = string.Empty;
-        public string Password { get;  set; } = string.Empty;
+
+        [JsonPropertyName("password")]
+        public string Password { get; set; } = string.Empty;
     }
 }
