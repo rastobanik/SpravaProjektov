@@ -1,5 +1,5 @@
 solution sa sklada z dvoch projektov
-obidva projekty vyuzivaju framework .net CORE 8.0
+obidva projekty vyuzivaju framework .net CORE 10.0
 
 SpravaProjektovUI
 - jedna sa o desktopovu aplikaciu vo WPF
