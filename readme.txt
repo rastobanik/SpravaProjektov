@@ -6,6 +6,11 @@ SpravaProjektovUI
 - je pouzity architektonicky vzor MVVM
 - na implementaciu je pouzity framework CommunityToolkit.Mvvm
 
+SpravaProjektovUI-Avalonia
+- jedna sa o desktopovu aplikaciu vyuzivajucu .NET UI framework Avalonia
+- je pouzity architektonicky vzor MVVM
+- na implementaciu je pouzity framework CommunityToolkit.Mvvm
+
 SpravaProjetovAPI
 - webova aplikacia poskytujuca REST API rozhranie 
 - je implementovana pomocou ASP.NET Core Minimal API framework
