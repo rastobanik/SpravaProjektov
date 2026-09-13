@@ -1,4 +1,4 @@
-solution sa sklada z dvoch projektov
+solution sa sklada z niekolkych projektov
 obidva projekty vyuzivaju framework .net CORE 10.0
 
 SpravaProjektovUI
