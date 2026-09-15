@@ -1,5 +1,5 @@
 solution sa sklada z niekolkych projektov
-obidva projekty vyuzivaju framework .net CORE 10.0
+projekty vyuzivaju framework .net CORE 10.0
 
 SpravaProjektovUI
 - jedna sa o desktopovu aplikaciu vo WPF
@@ -11,7 +11,7 @@ SpravaProjektovUI-Avalonia
 - je pouzity architektonicky vzor MVVM
 - na implementaciu je pouzity framework CommunityToolkit.Mvvm
 
-SpravaProjetovAPI
+SpravaProjektovAPI
 - webova aplikacia poskytujuca REST API rozhranie 
 - je implementovana pomocou ASP.NET Core Minimal API framework
 - na logovanie sa vyuziva framework Serilog
