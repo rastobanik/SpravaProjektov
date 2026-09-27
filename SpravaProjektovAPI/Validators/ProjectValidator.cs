@@ -5,8 +5,11 @@ namespace SpravaProjektovAPI.Validators
 {
     public class ProjectValidator : AbstractValidator<ProjectRequest>
     {
-        public ProjectValidator() 
+        public ProjectValidator()
         {
+            RuleFor(x => x.Id)
+           .NotEmpty().WithMessage("Project ID is required.");
+
             RuleFor(x => x.Name)
                 .NotEmpty().WithMessage("Project name is required.")
                 .MaximumLength(100).WithMessage("Project name must not exceed 100 characters.");

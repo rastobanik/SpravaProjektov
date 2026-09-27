@@ -1,38 +1,38 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="windows-1250"?>
 <projects>
   <project id="prj1">
-    <name>Informačný systém firmy ABC</name>
-    <abbreviation>IS-ABC</abbreviation>
-    <customer>ABC, s. r. o.</customer>
+    <name> Informačný systém firmy ABC </name>
+    <abbreviation> IS - ABC </abbreviation>
+    <customer> ABC, s.r.o. </customer>
   </project>
   <project id="prj2">
-    <name>Importný modul ISIS</name>
-    <abbreviation>Import-ISIS</abbreviation>
-    <customer>Homer Simpson</customer>
+    <name> Importný modul ISIS</name>
+    <abbreviation> Import - ISIS </abbreviation>
+    <customer> Homer Simpson </customer>
   </project>
   <project id="prj3">
-    <name>Portácia IS-VAK na Oracle</name>
-    <abbreviation>OracleVAK</abbreviation>
-    <customer>VAK, s. p.</customer>
+    <name> Portácia IS - VAK na Oracle</name>
+    <abbreviation> OracleVAK </abbreviation>
+    <customer> VAK, s.p.</customer>
   </project>
   <project id="prj4">
-    <name>Elektronicý obchod pre Telecom</name>
-    <abbreviation>EComTelecom</abbreviation>
-    <customer>Česky Telecom, a. s.</customer>
+    <name> Elektronicý obchod pre Telecom </name>
+    <abbreviation> EComTelecom </abbreviation>
+    <customer> Česky Telecom, a.s.</customer>
   </project>
   <project id="prj5">
-    <name>Rozpoznávanie čiarového kódu pre Delvitu</name>
-    <abbreviation>CK-Delvita</abbreviation>
-    <customer>Delvita, a. s.</customer>
+    <name>Nov� testovac� projekt</name>
+    <abbreviation>NTP</abbreviation>
+    <customer>ICZ Slovakia</customer>
   </project>
   <project id="pr7">
-    <name>fffffff</name>
-    <abbreviation>ffffff</abbreviation>
-    <customer>fffffffff</customer>
+    <name> fffffff </name>
+    <abbreviation> ffffff </abbreviation>
+    <customer> fffffffff </customer>
   </project>
   <project id="string">
-    <name>string</name>
-    <abbreviation>string</abbreviation>
-    <customer>string</customer>
+    <name> string </name>
+    <abbreviation> string </abbreviation>
+    <customer> string </customer>
   </project>
 </projects>

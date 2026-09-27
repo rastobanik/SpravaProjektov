@@ -29,7 +29,7 @@ try
 
     // mrknut sa na scrutor - pomocou neho by sa dalo zaregistrovat vsetky service a repository naraz, ale nechce sa mi to riesit teraz
     builder.Services.AddScoped<IProjectService, ProjectService>();
-    builder.Services.AddScoped<ILoginService, LoginService>();    
+    builder.Services.AddScoped<ILoginService, LoginService>();
     builder.Services.AddScoped<IProjectRepository, XMLRepository>(provider =>
     {
         var relativePath = builder.Configuration.GetValue<string>("ProjectDataFilePath")
@@ -77,7 +77,7 @@ try
     .HasApiVersion(ApiVersions.V1)
     .HasApiVersion(ApiVersions.V2)
     //.HasDeprecatedApiVersion(ApiVersions.V1)
-    .Build();       
+    .Build();
 
     app.UseHttpsRedirection();
 
@@ -117,3 +117,5 @@ finally
 {
     Log.CloseAndFlush();
 }
+
+public partial class Program { }
