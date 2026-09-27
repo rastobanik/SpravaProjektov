@@ -1,12 +1,17 @@
-solution sa sklada z dvoch projektov
-obidva projekty vyuzivaju framework .net CORE 8.0
+solution sa sklada z niekolkych projektov
+projekty vyuzivaju framework .net CORE 10.0
 
 SpravaProjektovUI
 - jedna sa o desktopovu aplikaciu vo WPF
 - je pouzity architektonicky vzor MVVM
 - na implementaciu je pouzity framework CommunityToolkit.Mvvm
 
-SpravaProjetovAPI
+SpravaProjektovUI-Avalonia
+- jedna sa o desktopovu aplikaciu vyuzivajucu .NET UI framework Avalonia
+- je pouzity architektonicky vzor MVVM
+- na implementaciu je pouzity framework CommunityToolkit.Mvvm
+
+SpravaProjektovAPI
 - webova aplikacia poskytujuca REST API rozhranie 
 - je implementovana pomocou ASP.NET Core Minimal API framework
 - na logovanie sa vyuziva framework Serilog
