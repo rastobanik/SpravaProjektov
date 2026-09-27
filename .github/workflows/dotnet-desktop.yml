@@ -36,20 +36,20 @@
 # For a complete CI/CD sample to get started with GitHub Action workflows for Desktop Applications,
 # refer to https://github.com/microsoft/github-actions-for-desktop-apps
 
-name: WPF Build and Package
+name: WPF Build, Test and Package
 
 on:
   push:
-    branches: [ "main" ] # Spustí sa pri každom pushnutí do vetvy main
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
   build:
-    runs-on: windows-latest # WPF vyžaduje Windows prostredie
+    runs-on: windows-latest
 
     env:
-      Solution_Name: SpravaProjektov.slnx # 👈 SEM NAPÍŠ NÁZOV SVOJHO .SLN SÚBORU
+      Solution_Name: SpravaProjektov.slnx
       Configuration: Release
 
     steps:
@@ -58,13 +58,13 @@ jobs:
       with:
         fetch-depth: 0
 
-    # 1. Inštalácia .NET SDK (ak používaš moderné .NET 5 / 6 / 7 / 8 / 9)
+    # 1. Inštalácia .NET SDK ( moderné .NET 10 )
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '10.0.x' # 👈 Zmeň podľa verzie .NET, ktorú používa tvoje WPF
+        dotnet-version: '10.0.x' 
 
-    # 2. Pridanie MSBuild do príkazového riadku (potrebné pre WPF a NuGet)
+    # 2. Pridanie MSBuild do príkazového riadku
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v2
 
@@ -72,15 +72,31 @@ jobs:
     - name: Restore NuGet packages
       run: msbuild $env:Solution_Name -t:Restore -p:Configuration=$env:Configuration
 
-    # 4. Samotná kompilácia (Build) WPF aplikácie
+    # 4. SPUSTENIE TESTOV
+    # Použijeme logovanie vo formáte trx, aby GitHub Actions dokázal prečítať výsledky
+    - name: Run Unit & Integration Tests
+      run: dotnet test $env:Solution_Name --configuration $env:Configuration --no-restore --logger "trx;LogFileName=test_results.trx"
+
+    # 5. VIZUÁLNY REPORT TESTOV
+    # Ak nejaký test zlyhá, tento krok ti priamo v GitHube ukáže, ktorý to bol a prečo (aj s chybovou hláškou z FluentAssertions)
+    # Beží vždy (if: always()), aby ukázal report aj vtedy, keď testy zlyhajú
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: .NET Core Integration Tests Result
+        path: "**/test_results.trx"
+        reporter: dotnet-trx
+
+    # 6. Samotná kompilácia (Build) WPF aplikácie
+    # Spustí sa iba ak testy prešli úspešne
     - name: Build WPF Application
       run: msbuild $env:Solution_Name -p:Configuration=$env:Configuration
 
-    # 5. Uloženie skompilovanej aplikácie ako artefakt (dostupný na stiahnutie v GitHube)
+    # 7. Uloženie skompilovanej aplikácie ako artefakt
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: WPF-App-Release
         path: |
           **/bin/Release/
-
